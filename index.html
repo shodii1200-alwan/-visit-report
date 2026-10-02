@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>تقرير تبادل الزيارات</title>
+<title>استمارة الملاحظة الصفية</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f3f6f4;--card:#fff;--ink:#16302b;--mute:#5b7069;--line:#d5e0db;--accent:#0b6b5a;--accent-ink:#fff;--soft:#e3f1ec;
@@ -35,7 +35,7 @@ textarea{min-height:76px;resize:vertical}
 .opts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
 .opt{position:relative}
 .opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer}
-.opt span{display:block;text-align:center;font-size:13px;padding:8px 2px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.opt span{display:block;text-align:center;font-size:12px;padding:8px 2px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
 .opt input:checked+span{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700}
 .opt.no input:checked+span{background:#b3453a;border-color:#b3453a;color:#fff}
 .opt{border-radius:10px}
@@ -65,12 +65,13 @@ button.l{padding:4px 10px;font-size:12px}
 <div class="wrap">
 <header>
 <small>المملكة العربية السعودية • وزارة التعليم</small>
-<small>إدارة التعليم بمنطقة جازان</small>
+<small>الإدارة العامة للتعليم بمنطقة جازان</small>
 <small>الثانوية الثالثة بأبي عريش وبرنامج العوق الفكري</small>
-<h1>تقرير تبادل الزيارات</h1>
+<h1>استمارة الملاحظة الصفية</h1>
+<small>لمدارس التعليم العام (ابتدائي - متوسط - ثانوي)</small>
 </header>
 
-<div class="prog"><div class="bar"><i id="fill"></i></div><span id="ptxt">0 من 20 عنصرًا</span></div>
+<div class="prog"><div class="bar"><i id="fill"></i></div><span id="ptxt">0 من 25 عنصرًا</span></div>
 
 <section class="draftbar">
 <h2>المسودة</h2>
@@ -80,43 +81,43 @@ button.l{padding:4px 10px;font-size:12px}
 
 <section>
 <h2>بيانات الزيارة</h2>
+<label for="teacher">اسم المعلم/ة</label><input id="teacher" data-k="teacher">
+<label for="topic">عنوان الدرس</label><input id="topic" data-k="topic">
 <div class="grid">
-<div><label for="visitor">المعلمة الزائرة</label><input id="visitor" data-k="visitor"></div>
-<div><label for="visited">المعلمة المزارة</label><input id="visited" data-k="visited"></div>
-<div><label for="cls">الصف</label><input id="cls" data-k="cls"></div>
-<div><label for="subj">المادة</label><input id="subj" data-k="subj"></div>
-<div><label for="date">التاريخ</label><input id="date" type="date" data-k="date"></div>
-<div><label for="topic">موضوع الدرس</label><input id="topic" data-k="topic"></div>
+<div><label for="cls">الصف الدراسي</label><input id="cls" data-k="cls"></div>
+<div><label for="period">الحصة</label><input id="period" data-k="period"></div>
+<div><label for="day">اليوم</label><input id="day" data-k="day"></div>
+<div><label for="date">تاريخ الزيارة</label><input id="date" type="date" data-k="date"></div>
+<div><label for="week">الأسبوع</label><input id="week" data-k="week"></div>
+<div><label for="total">العدد الكلي للمتعلمين</label><input id="total" type="number" inputmode="numeric" data-k="total"></div>
+<div><label for="present">عدد الحضور</label><input id="present" type="number" inputmode="numeric" data-k="present"></div>
 </div>
-<label for="goal">الهدف من الزيارة</label>
-<textarea id="goal" data-k="goal"></textarea>
 </section>
 
 <section>
-<h2>عناصر التقويم</h2>
+<h2>مؤشرات الملاحظة الصفية</h2>
 <div id="items"></div>
 <div class="sum" id="sum"></div>
 </section>
 
 <section>
-<h2>الملاحظات والتوصيات</h2>
-<label for="pos">الملاحظات الإيجابية للمعلمة الزائرة</label>
+<h2>الملاحظات</h2>
+<label for="pos">المرئيات الإيجابية</label>
 <textarea id="pos" data-k="pos"></textarea>
-<label for="rec">التوصيات التي توصي بها المعلمة الزائرة</label>
-<textarea id="rec" data-k="rec"></textarea>
+<label for="fb">التغذية الراجعة</label>
+<textarea id="fb" data-k="fb"></textarea>
+<label for="sug">المقترحات التطويرية</label>
+<textarea id="sug" data-k="sug"></textarea>
 </section>
 
 <section>
 <h2>التوقيعات</h2>
-<label>المعلمة الزائرة</label>
+<label>اسم المعلمة / التوقيع</label>
 <canvas class="sig" data-sig="s1"></canvas>
 <div class="sigrow"><span>وقّعي بإصبعك داخل المربع</span><button class="l" data-clear="s1">مسح</button></div>
-<label>المعلمة المزارة</label>
+<label>مديرة المدرسة: عفاف أحمد صباغ</label>
 <canvas class="sig" data-sig="s2"></canvas>
 <div class="sigrow"><span>وقّعي بإصبعك داخل المربع</span><button class="l" data-clear="s2">مسح</button></div>
-<label>مديرة المدرسة: عفاف أحمد صباغ</label>
-<canvas class="sig" data-sig="s3"></canvas>
-<div class="sigrow"><span>وقّعي بإصبعك داخل المربع</span><button class="l" data-clear="s3">مسح</button></div>
 <label>ختم المدرسة</label>
 <div class="stampbox" id="stampbox"><img id="stampimg" alt="" hidden><span id="stamphint">لم يُضف ختم بعد</span></div>
 <div class="sigrow"><span>يُحفظ على جهازك ويظهر في كل نموذج جديد</span><span><button class="l" id="stampadd">إضافة ختم</button> <button class="l" id="stampdel">حذف</button></span></div>
@@ -133,26 +134,26 @@ button.l{padding:4px 10px;font-size:12px}
 </div>
 
 <script>
-const ITEMS=["وضوح أهداف الدرس","تسلسل خطوات الدرس","وضوح وفصاحة الصوت","مناسبة طريقة التدريس","جودة الأسئلة التي تلقى على الطلاب","مهارة توزيع الأسئلة على الطلاب","تقبل المعلم لمشاركات وآراء الطلاب","جلب انتباه الطلاب","استخدام عبارات التشجيع والتعزيز للطلاب","تمكن المعلم من المادة العلمية","استثمار وقت الحصة","شخصية المعلم","مظهر المعلم","ضبط الطلاب","عرض وسيلة تعليمية","تنفيذ نشاطات المادة","إتاحة الفرصة للنقد والتذوق","توظيف المكتبة لخدمة الدرس","تقييم الدرس في نهاية الحصة","الاحتفاظ بالنتائج المميزة من أعمال الطلاب"];
-const LV=["ممتاز","جيد جدًا","جيد","لم ينفذ"];
+const ITEMS=["تنفذ المدرسة برامج وأنشطة لتعزيز القيم الإسلامية والهوية الوطنية لدى المتعلمين.", "تنفذ المدرسة إجراءات تضمن مناخًا آمنًا للتعلم والنمو نفسيًا واجتماعيًا.", "يتوافر في بيئة التعلم مصادر وأنشطة متنوعة للتعلم تلبي احتياجات المتعلمين ومنهم ذوو الإعاقة والموهوبون.", "يدار الوقت في بيئة التعلم بفاعلية لدعم التعلم وتلبية احتياجات جميع المتعلمين ومنهم ذوو الإعاقة والموهوبون.", "يتاح للمتعلمين فرص متكافئة في الأنشطة والمناقشة الصفية، واستخدام مصادر التعلم.", "توفر المدرسة مصادر تعلم متنوعة تدعم تنفيذ المناهج لتحقيق نواتج التعلم المستهدفة.", "ينفذ المعلم أنشطة واستراتيجيات تدريس تستوفي نواتج التعلم المستهدفة في المنهج وتتسق معها بوضوح.", "تتنوع استراتيجيات التدريس وفقًا لقدرات المتعلمين وتراعي الفروق الفردية بينهم.", "يستخدم المعلم مصادر تعلم رقمية تلبي احتياجات المتعلمين بمختلف فئاتهم.", "تنفذ المدرسة أنشطة تعليم وتعلم تركز على تطبيقات عملية ترتبط بحياة المتعلمين.", "تشجع بيئة التعلم داخل الصف على تنمية مهارات القراءة والكتابة لدى المتعلمين.", "تشجع بيئة التعلم داخل الصف على تنمية المهارات العددية (الحساب) لدى المتعلمين.", "تشجع الممارسات التدريسية على تنمية مهارات التفكير والبحث والابتكار لدى المتعلمين.", "تشجع بيئة التعلم تنمية المهارات العاطفية والاجتماعية لدى المتعلمين.", "يستخدم المعلم أساليب تحفيز تعزز الدافعية لدى المتعلمين.", "يشارك المتعلمون في أنشطة التعلم بفاعلية ويستمتعون بها.", "يستخدم المعلم أساليب وأدوات تقويم متنوعة (تشخيصية - بنائية - ختامية) للكشف عن الفروق الفردية في مستويات أداء المتعلمين المختلفة.", "يطبق المعلم أساليب وأدوات تقويم متنوعة لقياس مستوى تحقق نواتج التعلم المستهدفة في المنهج لدى المتعلمين.", "يقدم المعلم تغذية راجعة متنوعة للمتعلمين حسب الموقف التعليمي تركز على تحسين أدائهم.", "يظهر المتعلمون الاعتزاز بالقيم والهوية الوطنية.", "يظهر المتعلمون الاتجاهات الإيجابية نحو ذواتهم والآخرين.", "يظهر المتعلمون التزامًا بالممارسات الصحية السليمة.", "يلتزم المتعلمون بقواعد السلوك والانضباط.", "يظهر المتعلمون الاستقلالية والقدرة على التعلم الذاتي.", "يظهر المتعلمون الاعتزاز بثقافتهم واحترام التنوع الثقافي في المجتمع."];
+const LV=["منخفضة","متوسطة","مرتفعة","مرتفعة جدًا"];
 const KEY="visit-report-draft";
 const box=document.getElementById("items");
 const N=n=>n.toLocaleString("ar-SA");
-box.innerHTML=ITEMS.map((t,i)=>`<div class="item"><b>${N(i+1)}. ${t}</b><div class="opts">${LV.map((l,j)=>`<label class="opt${j==3?" no":""}"><input type="radio" name="r${i}" value="${j}"><span>${l}</span></label>`).join("")}</div><input class="note" data-n="${i}" placeholder="ملحوظات (اختياري)"></div>`).join("");
+box.innerHTML=ITEMS.map((t,i)=>`<div class="item"><b>${N(i+1)}. ${t}</b><div class="opts">${LV.map((l,j)=>`<label class="opt"><input type="radio" name="r${i}" value="${j}"><span>${l}</span></label>`).join("")}</div><input class="note" data-n="${i}" placeholder="ملحوظات (اختياري)"></div>`).join("");
 
 let state={f:{},r:{},n:{},sig:{}};
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
 function load(){try{const s=localStorage.getItem(KEY);if(s)state=JSON.parse(s)}catch(e){}}
 function stats(){
  const c=[0,0,0,0];let done=0;
- for(let i=0;i<20;i++){if(state.r[i]!==undefined){done++;c[state.r[i]]++}}
- document.getElementById("fill").style.width=done*5+"%";
- document.getElementById("ptxt").textContent=`${N(done)} من ${N(20)} عنصرًا`;
+ for(let i=0;i<25;i++){if(state.r[i]!==undefined){done++;c[state.r[i]]++}}
+ document.getElementById("fill").style.width=done*4+"%";
+ document.getElementById("ptxt").textContent=`${N(done)} من ${N(25)} عنصرًا`;
  document.getElementById("sum").innerHTML=LV.map((l,j)=>`<div>${l}: ${N(c[j])}</div>`).join("");
 }
 function paint(){
  document.querySelectorAll("[data-k]").forEach(e=>e.value=state.f[e.dataset.k]||"");
- for(let i=0;i<20;i++){const v=state.r[i];if(v!==undefined){const e=document.querySelector(`input[name=r${i}][value="${v}"]`);if(e)e.checked=true}}
+ for(let i=0;i<25;i++){const v=state.r[i];if(v!==undefined){const e=document.querySelector(`input[name=r${i}][value="${v}"]`);if(e)e.checked=true}}
  document.querySelectorAll("[data-n]").forEach(e=>e.value=state.n[e.dataset.n]||"");
  stats();
 }
